@@ -1,0 +1,33 @@
+CSC241 - Lab 02 - Predictions
+Sharmeen Imtiaz | SP26-BAI-045
+
+--- Task 1 (Task1Demo) ---
+Prediction: All three students will print with their assigned studentId, name,
+and completedCredits. After increasing s2's completedCredits by 3, only s2's
+value will change (45 -> 48); s1 and s3 stay the same because each object has
+its own independent copy of the fields.
+
+--- Task 2 (Task2Demo) ---
+Prediction: addCredits will increase completedCredits for s1 and s2.
+remainingCredits(130) will return (130 - completedCredits) for each student.
+summary() will print one readable line per student with ID, name, and credits.
+
+--- Task 3 (OverloadDemo) ---
+Prediction:
+enroll("CSC241")     -> calls enroll(String)
+enroll("CSC241", 2)  -> calls enroll(String, int)
+enroll(241)          -> calls enroll(int)
+enroll();             -> would not compile (no matching method)
+enroll("241", "2");   -> would not compile (no enroll(String, String) overload)
+
+--- Task 4 (PassByValueDemo) ---
+Prediction:
+Experiment A: caller's int stays 10 (unchanged) even though x is set to 99 inside the method.
+Experiment B: caller's Student.completedCredits changes to 99 (object mutated through copied reference).
+Experiment C: caller's Student still refers to the original object/name (local reassignment inside method does not redirect the caller's variable).
+
+--- Task 5 (AIExperimentDemo) ---
+Prediction: exp1 and exp2 update independently when runEpochs()/runEpochs(int,int)
+are called. remainingEpochs() and status() will reflect each experiment's own
+completedEpochs/targetEpochs. boostEpochs(exp1, 4) will change exp1 only, proving
+the mutation through a copied reference is visible to the caller.

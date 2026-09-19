@@ -1,0 +1,21 @@
+CSC241 - Lab 02 - Compiler Notes
+Sharmeen Imtiaz | SP26-BAI-045
+
+Task 3 - Invalid overload attempt (differs only by return type):
+
+Code attempted:
+    void enroll(String courseCode) { ... }
+    int enroll(String courseCode) { return 0; }   // INVALID
+
+Compiler output:
+InvalidOverloadTest.java:6: error: method enroll(String) is already defined in class InvalidOverloadTest
+    int enroll(String courseCode) {
+    ^
+1 error
+
+Explanation:
+Return type is not part of a method's signature in Java. The compiler only
+uses the method name plus the number/type/order of parameters to distinguish
+overloaded methods. Since both methods here have the exact same name and
+parameter list (String), the compiler treats the second one as a duplicate
+definition rather than a valid overload, which is why compilation fails.
